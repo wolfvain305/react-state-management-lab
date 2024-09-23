@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import FighterCard from './Components/FighterCard.jsx'
 import './App.css'
 
 function App() {
@@ -32,26 +33,27 @@ function App() {
     }
     }
 
+    
     return (
-      <div classname="App">
+      <div className="App">
         <h1>Zombie Fighters</h1>
         <h2>Money: ${money}</h2>
         <h2>Total Team Strength: {totalStrength}</h2>
         <h2>Total Team Agility: {totalAgility}</h2>
 
-        <h3> Available Zombie Fighters:</h3>
-        <ul className='fighter-list'>
-          {zombieFighters.map((fighter,index) => (
-          <li key={index} className = "fighter-item">
-            <img src={fighter.img} alt={fighter.name} className="fighter-img" />
-            <h4>{fighter.name}</h4>
-            <p>Price: ${fighter.price}</p>
-            <p>Strength: {fighter.strength}</p>
-            <p>Agility: {fighter.agility}</p>
-            <button onClick={() => handleAddFighter(fighter)}>Add</button>
-          </li> 
+        <h3>Available Zombie Fighters:</h3>
+      <ul className="fighter-list">
+        {zombieFighters.map((fighter, index) => (
+          <li key={index}>
+            <FighterCard
+              fighter={fighter}
+              handleAction={handleAddFighter}
+              actionText="Add"
+            />
+          </li>
         ))}
-        </ul>
+      </ul>
+      
       </div>
     )
   }
