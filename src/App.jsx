@@ -54,6 +54,22 @@ function App() {
         ))}
       </ul>
       
+      <h3>Your Team::</h3>
+      {team.length === 0 ? (
+        <p> Pick some Zombie Fighters!</p>
+      ) : (
+        <ul className="team-list">
+          {team.map((fighter, index) => (
+            <li key={index}>
+              <FighterCard
+                fighter={fighter}
+                handleAction={handleRemoveFighter}
+                actionText="Remove"
+            />
+            </li>
+          ))}
+        </ul>
+      )}
       </div>
     )
   }
