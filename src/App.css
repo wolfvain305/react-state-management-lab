@@ -1,9 +1,40 @@
-ul {
-  display: flex;
-  flex-wrap: wrap;
+.App {
+  text-align: center;
 }
 
-li {
-  list-style: none;
+.fighter-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fighter-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
   margin: 10px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.fighter-img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
 }

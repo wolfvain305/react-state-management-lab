@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-// import './App.css'
+import './App.css'
 
 function App() {
 
   const [team, setTeam] = useState([])
-  const [money, setMoney] = useState([]) 
+  const [money, setMoney] = useState([100]) 
+  const [totalStrength, setTotalStrength] = useState([])
+  const [totalAgility, setTotalAgility] = useState([])
   
   const zombieFighters = [
     { name: 'Survivor', price: 12, strength: 6, agility: 4, img: 'https://via.placeholder.com/150/92c952' },
@@ -23,14 +25,19 @@ function App() {
     if (money >= fighter.price) {
       setTeam([...team, fighter])
       setMoney(money - fighter.price)
+      setTotalStrength(totalStrength + fighter.strength)
+      setTotalAgility(totalAgility + agility.strength)
     } else {
       console.log('not enough money')
     }
     }
+
     return (
       <div classname="App">
         <h1>Zombie Fighters</h1>
         <h2>Money: ${money}</h2>
+        <h2>Total Team Strength: {totalStrength}</h2>
+        <h2>Total Team Agility: {totalAgility}</h2>
 
         <h3> Available Zombie Fighters:</h3>
         <ul className='fighter-list'>
@@ -48,9 +55,5 @@ function App() {
       </div>
     )
   }
-
-
-
-
 
 export default App
