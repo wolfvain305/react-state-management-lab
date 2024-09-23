@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import './App.css'
 
 function App() {
-  
+
   const [team, setTeam] = useState([])
   const [money, setMoney] = useState([]) 
   
@@ -18,6 +18,20 @@ function App() {
     { name: 'Infiltrator', price: 17, strength: 5, agility: 9, img: 'https://via.placeholder.com/150/392537' },
     { name: 'Leader', price: 22, strength: 7, agility: 6, img: 'https://via.placeholder.com/150/602b9e' },
   ];
-}
+  
+  const handleAddFighter = (fighter) => {
+    if (money >= fighter.price) {
+      setTeam([...team, fighter])
+      setMoney(money - fighter.price)
+    } else {
+      console.log('not enough money')
+    }
+    }
+      
+  }
+
+
+
+
 
 export default App
