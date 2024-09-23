@@ -27,7 +27,26 @@ function App() {
       console.log('not enough money')
     }
     }
-      
+    return (
+      <div classname="App">
+        <h1>Zombie Fighters</h1>
+        <h2>Money: ${money}</h2>
+
+        <h3> Available Zombie Fighters:</h3>
+        <ul className='fighter-list'>
+          {zombieFighters.map((fighter,index) => (
+          <li key={index} className = "fighter-item">
+            <img src={fighter.img} alt={fighter.name} className="fighter-img" />
+            <h4>{fighter.name}</h4>
+            <p>Price: ${fighter.price}</p>
+            <p>Strength: {fighter.strength}</p>
+            <p>Agility: {fighter.agility}</p>
+            <button onClick={() => handleAddFighter(fighter)}>Add</button>
+          </li> 
+        ))}
+        </ul>
+      </div>
+    )
   }
 
 
