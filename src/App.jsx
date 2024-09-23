@@ -26,14 +26,21 @@ function App() {
     if (money >= fighter.price) {
       setTeam([...team, fighter])
       setMoney(money - fighter.price)
-      setTotalStrength(totalStrength + fighter.strength)
-      setTotalAgility(totalAgility + agility.strength)
+      setTotalStrength((prevStrength) => prevStrength + fighter.strength)
+      setTotalAgility((prevAgility) => prevAgility + fighter.agility)
     } else {
       console.log('not enough money')
     }
     }
 
-    
+  const handleRemoveFighter = (fighterToRemove) => {
+    const updateTeam = team.filter(fighter => fighter.name !== fighterToRemove.name)
+    setTeam(updateTeam)
+    setMoney(money + fighterToRemove.price)
+    setTotalStrength(totalStrength - fighterToRemove.strength)
+    setTotalAgility(setTotalAgility - fighterToRemove.totalAgility)
+  }  
+  
     return (
       <div className="App">
         <h1>Zombie Fighters</h1>
